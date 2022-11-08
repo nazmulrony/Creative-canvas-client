@@ -21,8 +21,8 @@ const ServiceDetails = () => {
                 <div className='lg:col-span-3 my-auto '>
                     <h3 className='text-3xl font-semibold'>{name}</h3>
                     <p className=' text-zinc-300'>{description}...</p>
-                    <p className='flex items-center gap-1 text-xl my-1'> Rating: {rating} <FaStar className='inline-block text-yellow-600' /> </p>
-                    <p className='text-5xl font-light text-brand'>${price}</p>
+                    <p className='flex items-center gap-1 text-xl my-1 text-brand'> Rating: {rating} <FaStar className='inline-block ' /> </p>
+                    <p className='text-5xl'>${price}</p>
                 </div>
             </div>
         </div>

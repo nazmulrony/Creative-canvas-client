@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
+import Footer from '../pages/shared/Footer';
 import Header from '../pages/shared/Header';
 
 const Main = () => {
@@ -10,6 +11,7 @@ const Main = () => {
                 <Outlet />
                 <ScrollRestoration />
             </div>
+            <Footer></Footer>
 
         </div>
     );

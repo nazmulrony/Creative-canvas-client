@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
 import logo from '../../assets/logo.png'
 import { useContext } from 'react';
-// import { AuthContext } from '../contexts/AuthProvider';
+import { AuthContext } from '../../contexts/AuthProvider';
+
 
 
 
 
 const Header: React.FC = () => {
-    const user = { name: 'Rony', email: 'nhrony65@gmail.com' }
-    // const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const { user, logOut } = useContext(AuthContext);
+    ;
 
     const [navbar, setNavbar] = useState(false);
 
 
     const handleSignOut = () => {
-        // logOut()
+        logOut()
+        navigate('/login');
     };
 
     const navLinks = [
@@ -26,15 +30,12 @@ const Header: React.FC = () => {
         >
             <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/home`}>Home</NavLink>
             <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/blog`}>Blog</NavLink>
-
             {
                 user?.uid && <span >
                     <div className="flex  items-center justify-center w-10 h-10 overflow-hidden rounded-full bg-white/30">
-
                         {user?.photoURL ? (
-
                             <img
-                                className="object-cover w-full h-full"
+                                className="w-full h-full object-cover"
                                 src={user.photoURL}
                                 alt=""
                             />
@@ -46,7 +47,7 @@ const Header: React.FC = () => {
                 </span>
             }
             {user?.uid ? (
-                <button onClick={handleSignOut} className="btn btn-xs text-gray-400 w-20 hover:text-light">Sign Out</button>
+                <button onClick={handleSignOut} className="btn btn-xs btn-brand">Sign Out</button>
             ) : (
                 <>
                     <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/login`}>Sign In</NavLink>
