@@ -19,12 +19,19 @@
         "rating": 4.7,
         "price": 299,
         "description": "Food photography as a product is more focused on accessing the viewers’ other senses through the imagery, whether that’s smell, taste, touch or hearing. You look at those images and instead of the story, memories, and wishful thinking, you get the smoke wafting through the air, the imaginary flavors on the tip of your tongue, the textures in perfect harmony, and the sizzling of the grease echoing in your ear."
-    }
+    },
     {
         "name": "Cookbook Photography",
         "image": "https://i.ibb.co/nz212Bz/christian-mackie-BKGl7j-JTt-Hc-unsplash.jpg",
         "rating": 4.5,
         "price": 379,
         "description": "Make your cookbook look so attractive. I photograph food for all types of projects - cookbooks, product packaging, websites, catalogs, menus. With my affordable rate for a half-day or full-day photo shoot, my food photography services will work within your budget. My professional food photography makes your recipes and food products shine."
+    },
+    {
+        "name": "Corporate Photography",
+        "image": "https://i.ibb.co/YBX68b7/airfocus-K-Veav-YEfd-A-unsplash.jpg",
+        "rating": 4.6,
+        "price": 259,
+        "description": "If you need photographs for your company website or a new printed sales brochure, our professional photographers will provide you with a unique and personalized service that suits your needs and budget. I believe that on your big day I are telling a story. Capturing those special moments and emotions in a natural style are what I do best. Documenting your big day is an important decision, so with this in mind contact us today for further information on our service."
     }
 ]

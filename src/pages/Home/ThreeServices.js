@@ -11,7 +11,8 @@ const ThreeServices = () => {
     }, [])
     return (
 
-        <div >
+        <div className=''>
+            <h2 className='text-brand text-3xl lg:text-5xl font-semibold text-center my-4 lg:my-10 underline'>Services</h2>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12'>
                 {
                     services.map((service, index) => <ServiceCard
@@ -21,7 +22,7 @@ const ThreeServices = () => {
                     />)
                 }
             </div>
-            <Link className='grid place-items-center'><button className="btn btn-brand">Sell All Services</button></Link>
+            <Link to="/services" className='grid place-items-center py-6'><button className="btn outline-brand">Sell All Services</button></Link>
         </div >
     );
 };

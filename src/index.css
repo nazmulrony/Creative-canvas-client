@@ -18,11 +18,18 @@ code {
 }
 
 .btn-brand {
-  @apply bg-brand duration-300;
+  @apply bg-brand duration-300 font-semibold;
 
 }
 
 .btn-brand:hover {
   @apply bg-dim;
+}
 
+.outline-brand {
+  @apply border-brand duration-300 bg-transparent;
+}
+
+.outline-brand:hover {
+  @apply bg-brand;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import Header from '../pages/shared/Header';
 
 const Main = () => {
@@ -8,6 +8,7 @@ const Main = () => {
             <Header />
             <div className='px-2 bg-dark min-h-screen'>
                 <Outlet />
+                <ScrollRestoration />
             </div>
 
         </div>
