@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Event Photography",
+        "image": "https://i.ibb.co/Pj5sBW3/chuttersnap-ZZOCECWiw-BI-unsplash-1.jpg",
+        "rating": 4.8,
+        "price": 399,
+        "description": "Photography is an integral part of  events and worldwide millions of photographers take awesome images in every event. Try me to have a box of memories of your event. 500 amazing edited photographs and creative frames. One highly experienced professional photographers and two Junior photo. I try my best to please my client with capturing their great moments"
+    },
+    {
+        "name": "Wedding Photography",
+        "image": "https://i.ibb.co/1JdmCjQ/samantha-gades-odt2t81d-Zt-Q-unsplash.jpg",
+        "rating": 5,
+        "price": 449,
+        "description": "They said a picture is worth a thousand words. It clearly and beautifully captures your emotions – the joy, the laughter, the tears, and you name it. I pride myself on offering the best shots to capture your joy and tell you your story in photos. I am one of  the best wedding photographer in Bangladesh who offer value for your money as all my professional photographers offer their impeccable skills on your big day. Being the best BD wedding photography agency, I seek to bring out the pomp and color on your special day and make you feel really special!"
+    },
+    {
+        "name": "Food and Drinks Photography",
+        "image": "https://i.ibb.co/FBzFYG4/jay-wennington-N-Y88-TWm-Gw-A-unsplash.jpg",
+        "rating": 4.7,
+        "price": 299,
+        "description": "Food photography as a product is more focused on accessing the viewers’ other senses through the imagery, whether that’s smell, taste, touch or hearing. You look at those images and instead of the story, memories, and wishful thinking, you get the smoke wafting through the air, the imaginary flavors on the tip of your tongue, the textures in perfect harmony, and the sizzling of the grease echoing in your ear."
+    }
+    {
+        "name": "Cookbook Photography",
+        "image": "https://i.ibb.co/nz212Bz/christian-mackie-BKGl7j-JTt-Hc-unsplash.jpg",
+        "rating": 4.5,
+        "price": 379,
+        "description": "Make your cookbook look so attractive. I photograph food for all types of projects - cookbooks, product packaging, websites, catalogs, menus. With my affordable rate for a half-day or full-day photo shoot, my food photography services will work within your budget. My professional food photography makes your recipes and food products shine."
+    }
+]

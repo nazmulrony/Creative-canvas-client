@@ -16,3 +16,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn-brand {
+  @apply bg-brand duration-300;
+
+}
+
+.btn-brand:hover {
+  @apply bg-dim;
+
+}
