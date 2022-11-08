@@ -41,15 +41,15 @@ const Register = () => {
     }
 
     return (
-        <div className='min-h-[90vh] px-2 py-4'>
+        <div className='min-h-[90vh] py-4'>
             <div className="bg-stone-900 text-light max-w-md mx-auto p-6 rounded-lg shadow-2xl">
                 <h2 className='text-center text-3xl text-brand mb-2 font-semibold'>Login</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="flex flex-col mb-3">
+                    <div className="flex flex-col mb-3 font-semibold">
                         <label htmlFor="email">Email</label>
                         <input type="email" name="email" id="email" placeholder='Enter your email' className='p-2 rounded-md text-dark font-semibold' required />
                     </div>
-                    <div className="flex flex-col mb-3">
+                    <div className="flex flex-col mb-3 font-semibold">
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password" id="password" className='p-2 rounded-md text-dark font-semibold' placeholder='Enter your password' required />
                     </div>
