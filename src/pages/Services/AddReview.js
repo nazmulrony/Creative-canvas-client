@@ -7,7 +7,7 @@ const AddReview = ({ handleReview }) => {
     const { user } = useContext(AuthContext);
     const location = useLocation();
     return (
-        <div className='flex gap-1 my-10 p-4 lg:p-10  lg:w-1/2 mx-auto  bg-stone-900'>
+        <div className='flex gap-1 my-6 lg:my-10 p-4 lg:p-10  lg:w-1/2 mx-auto  bg-stone-900'>
             {
                 user?.uid ? (
                     <>

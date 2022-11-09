@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div>
             <Header />
-            <div className='px-2 bg-dark min-h-screen'>
+            <div className='px-2 bg-dark min-h-screen lg:py-10 py-5'>
                 <Outlet />
                 <ScrollRestoration />
             </div>

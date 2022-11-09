@@ -3,6 +3,8 @@ import Main from "../layouts/Main";
 import AddService from "../pages/AddService";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
+import MyReviews from "../pages/MyReviews/MyReviews";
+
 import Register from "../pages/Register";
 import ServiceDetails from "../pages/Services/ServiceDetails";
 import Services from "../pages/Services/Services";
@@ -41,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path: '/add-service',
                 element: <AddService />
+            },
+            {
+                path: '/my-reviews',
+                element: <MyReviews />
             },
 
         ]

@@ -30,7 +30,7 @@ const AddService = () => {
 
     }
     return (
-        <div className='min-h-[90vh] py-y lg:py-10'>
+        <div className='min-h-[90vh] '>
             <div className="bg-stone-900 text-light max-w-4xl mx-auto p-6 rounded-lg shadow-2xl">
                 <h2 className='text-center text-3xl text-brand mb-2 font-semibold'>Add a Service</h2>
                 <Toaster />

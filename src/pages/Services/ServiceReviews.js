@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ServiceReviewCard from './ServiceReviewCard';
 
 const ServiceReviews = ({ id, loadReviews, reviews }) => {
@@ -9,7 +9,7 @@ const ServiceReviews = ({ id, loadReviews, reviews }) => {
 
     return (
         <div className='text-lime-50 bg-stone-900  lg:px-20 py-6 '>
-            <h2 className='text-brand text-5xl font-semibold text-center my-4'>Reviews</h2>
+            <h2 className='text-brand text-3xl lg:text-5xl font-semibold text-center my-4'>Reviews</h2>
             {
                 reviews.map(review => <ServiceReviewCard
                     key={review._id}

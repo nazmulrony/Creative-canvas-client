@@ -21,6 +21,8 @@ const ServiceDetails = () => {
         const rating = event.target.rating.value;
         const review = {
             serviceId: _id,
+            serviceTitle: name,
+            email: user.email,
             name: user.displayName,
             image: user.photoURL,
             text,
@@ -54,8 +56,8 @@ const ServiceDetails = () => {
             .catch(error => console.log(error))
     }
     return (
-        <div className='py-6  md:px-20 '>
-            <div className="grid grid-cols-1 lg:grid-cols-5  text-red-100 gap-3 py-9  px-6 bg-stone-900 ">
+        <div className=' md:px-20 '>
+            <div className="grid grid-cols-1 lg:grid-cols-5  text-red-100 gap-3  lg:py-20  p-6 bg-stone-900 ">
                 <figure className='lg:col-span-2 grid place-items-center'>
                     <PhotoProvider>
                         <PhotoView src={image}>
