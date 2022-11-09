@@ -1,16 +1,42 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css'
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const ServiceDetails = () => {
+    const { user } = useContext(AuthContext);
+    const location = useLocation()
+
     const service = useLoaderData();
-    const { image, name, price, rating, description } = service;
-    console.log(service);
+    const { image, name, price, rating, description, _id } = service;
+
+
+    const handleReview = event => {
+        event.preventDefault();
+
+        const text = event.target.text.value;
+        const rating = event.target.rating.value;
+        const review = {
+            serviceId: _id,
+            name: user.displayName,
+            image: user.photoURL,
+            text,
+            rating,
+        }
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json)
+
+        console.log(review);
+
+
+
+
+    }
     return (
-        <div className='py-6  md:px-20'>
-            <div className="grid grid-cols-1 lg:grid-cols-5  text-red-100 gap-3 py-9  px-6 bg-stone-900">
+        <div className='py-6  md:px-20 '>
+            <div className="grid grid-cols-1 lg:grid-cols-5  text-red-100 gap-3 py-9  px-6 bg-stone-900 ">
                 <figure className='lg:col-span-2 grid place-items-center'>
                     <PhotoProvider>
                         <PhotoView src={image}>
@@ -24,6 +50,28 @@ const ServiceDetails = () => {
                     <p className='flex items-center gap-1 text-xl my-1 text-brand'> Rating: {rating} <FaStar className='inline-block ' /> </p>
                     <p className='text-5xl'>${price}</p>
                 </div>
+            </div>
+            <div>
+                <div className='grid gap-2 grid-cols-9 my-10 p-10 rounded-xl lg:w-1/2 mx-auto  bg-stone-900'>
+                    {
+                        user?.uid ? (
+                            <>
+                                <div className='flex justify-end '>
+                                    <img src={user?.photoURL} alt="" className='h-12 w-12 rounded-full' />
+                                </div>
+                                <form onSubmit={handleReview} className='col-span-8 w-full'>
+
+                                    <input name="rating" className='rounded-md my-2 p-2 text-dark font-semibold' placeholder='Rating (Out of five)' required />
+                                    <textarea name="text" className='p-2 h-20 rounded-md text-dark font-semibold w-full ' placeholder='Write a review' required />
+                                    <button type='submit' className="btn btn-brand mt-2 btn-sm">Post Review</button>
+                                </form>
+                            </>
+                        ) : <p className='text-light font-semibold text-xl col-span-9 text-center'> Please <Link to="/login" state={{ from: location }} replace className='text-brand'>login</Link> to write a review</p>
+                    }
+
+                </div>
+
+
             </div>
         </div>
     );

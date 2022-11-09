@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service, index }) => {
     const { name, image, price, rating, description, _id } = service;
+    console.log(service, index);
     return (
-        <div className={`lg:col-span-2 text-zinc-200 ${index % 3 === 2 ? 'lg:row-start-2 lg:col-start-2' : ''} `}>
+        <div className={`lg:col-span-2 text-zinc-200 ${index % 3 === 2 ? ' lg:col-start-2' : ''} grid items-center`}>
             <div className='overflow-hidden'>
                 <PhotoProvider>
                     <PhotoView src={image}>
