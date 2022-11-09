@@ -1,23 +1,22 @@
-import React, { useContext } from 'react';
-import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css'
-import { FaStar, FaUser } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider';
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { } from 'react-hot-toast';
 import ServiceReviews from './ServiceReviews';
+import AddReview from './AddReview';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
-    const location = useLocation();
-
+    const [reviews, setReviews] = useState([]);
     const service = useLoaderData();
     const { image, name, price, rating, description, _id } = service;
 
 
     const handleReview = event => {
         event.preventDefault();
-
         const text = event.target.text.value;
         const rating = event.target.rating.value;
         const review = {
@@ -37,17 +36,22 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
+                    loadReviews(_id)
                     toast.success('Review added successfully!')
                     event.target.reset();
                 }
             })
             .catch(error => console.log(error))
-
         console.log(review);
-
-
-
-
+    }
+    //
+    const loadReviews = (id) => {
+        fetch(`http://localhost:5000/reviews?service=${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setReviews(data)
+            })
+            .catch(error => console.log(error))
     }
     return (
         <div className='py-6  md:px-20 '>
@@ -67,26 +71,14 @@ const ServiceDetails = () => {
                 </div>
             </div>
             <div>
-                <div className='flex gap-1 my-10 p-4 lg:p-10  lg:w-1/2 mx-auto  bg-stone-900'>
-                    {
-                        user?.uid ? (
-                            <>
-                                <div className='flex justify-end '>
-                                    <img src={user?.photoURL} alt="" className='h-12 w-12 rounded-full col-span-2 lg:col-span-1' />
-                                </div>
-                                <form onSubmit={handleReview} className='col-span-8 w-full'>
-                                    <Toaster />
-
-                                    <input name="rating" className='rounded-md my-2 p-2 text-dark font-semibold' placeholder='Rating (Out of five)' required />
-                                    <textarea name="text" className='p-2 h-20 rounded-md text-dark font-semibold w-full ' placeholder='Write a review' required />
-                                    <button type='submit' className="btn btn-brand mt-2 btn-sm">Post Review</button>
-                                </form>
-                            </>
-                        ) : <p className='text-light font-semibold text-xl col-span-9 text-center'> Please <Link to="/login" state={{ from: location }} replace className='text-brand'>login</Link> to write a review</p>
-                    }
-
-                </div>
-                <ServiceReviews id={_id} />
+                <AddReview
+                    handleReview={handleReview}
+                />
+                <ServiceReviews
+                    id={_id}
+                    loadReviews={loadReviews}
+                    reviews={reviews}
+                />
             </div>
         </div>
     );

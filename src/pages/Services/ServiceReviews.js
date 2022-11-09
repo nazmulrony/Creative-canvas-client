@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ServiceReviewCard from './ServiceReviewCard';
 
-const ServiceReviews = ({ id }) => {
-    const [reviews, setReviews] = useState([]);
+const ServiceReviews = ({ id, loadReviews, reviews }) => {
+
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?service=${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setReviews(data)
-            })
-            .catch(error => console.log(error))
-    }, [id, reviews])
+        loadReviews(id)
+    }, [id])
 
     return (
         <div className='text-lime-50 bg-stone-900  lg:px-20 py-6 '>
