@@ -9,7 +9,7 @@ import ServiceReviews from './ServiceReviews';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
-    const location = useLocation()
+    const location = useLocation();
 
     const service = useLoaderData();
     const { image, name, price, rating, description, _id } = service;
@@ -67,12 +67,12 @@ const ServiceDetails = () => {
                 </div>
             </div>
             <div>
-                <div className='grid gap-2 grid-cols-9 my-10 p-10  lg:w-1/2 mx-auto  bg-stone-900'>
+                <div className='flex gap-1 my-10 p-4 lg:p-10  lg:w-1/2 mx-auto  bg-stone-900'>
                     {
                         user?.uid ? (
                             <>
                                 <div className='flex justify-end '>
-                                    <img src={user?.photoURL} alt="" className='h-12 w-12 rounded-full' />
+                                    <img src={user?.photoURL} alt="" className='h-12 w-12 rounded-full col-span-2 lg:col-span-1' />
                                 </div>
                                 <form onSubmit={handleReview} className='col-span-8 w-full'>
                                     <Toaster />
