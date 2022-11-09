@@ -32,7 +32,6 @@ const MyReviews = () => {
                     if (data.acknowledged) {
                         loadReviews(user?.email);
                         toast.error('Review Deleted')
-
                     }
                 })
         }

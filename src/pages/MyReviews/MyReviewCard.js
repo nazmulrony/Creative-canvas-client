@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 const MyReviewCard = ({ review, handleDelete }) => {
@@ -17,7 +18,7 @@ const MyReviewCard = ({ review, handleDelete }) => {
                 <p>{text}</p>
             </div>
             <div className='flex flex-row lg:flex-col lg:justify-center gap-4 '>
-                <button className='btn btn-brand'> edit</button>
+                <Link to={`/reviews/${_id}`}><button className='btn btn-brand flex-1 w-full'> Edit</button></Link>
                 <button onClick={() => handleDelete(_id)} className='btn btn-error'>Delete </button>
             </div >
 

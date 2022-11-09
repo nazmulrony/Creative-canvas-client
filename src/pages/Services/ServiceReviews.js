@@ -11,6 +11,9 @@ const ServiceReviews = ({ id, loadReviews, reviews }) => {
         <div className='text-lime-50 bg-stone-900  lg:px-20 py-6 '>
             <h2 className='text-brand text-3xl lg:text-5xl font-semibold text-center my-4'>Reviews</h2>
             {
+                !reviews.length && <p className='text-center text-light text-2xl my-2'>No Reviews yet!</p>
+            }
+            {
                 reviews.map(review => <ServiceReviewCard
                     key={review._id}
                     review={review}
