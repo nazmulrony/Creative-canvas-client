@@ -63,7 +63,7 @@ const Header: React.FC = () => {
     ];
 
     return (
-        <nav className="w-full text-white bg-dark">
+        <nav className="w-full text-white bg-dark sticky top-0 z-20">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">

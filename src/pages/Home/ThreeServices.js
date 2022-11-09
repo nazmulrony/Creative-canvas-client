@@ -12,7 +12,7 @@ const ThreeServices = () => {
     return (
 
         <div className=''>
-            <h2 className='text-brand text-3xl lg:text-5xl font-semibold text-center my-4 lg:my-10 underline'>Services</h2>
+            <h2 className='text-brand text-3xl lg:text-4xl font-semibold text-center my-4 lg:my-10'>Services</h2>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12'>
                 {
                     services.map((service, index) => <ServiceCard
