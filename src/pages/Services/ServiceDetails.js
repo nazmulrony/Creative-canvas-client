@@ -4,6 +4,8 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css'
 import { FaStar, FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+import ServiceReviews from './ServiceReviews';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
@@ -25,8 +27,21 @@ const ServiceDetails = () => {
             text,
             rating,
         }
-        fetch('http://localhost:5000/reviews')
-            .then(res => res.json)
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Review added successfully!')
+                    event.target.reset();
+                }
+            })
+            .catch(error => console.log(error))
 
         console.log(review);
 
@@ -52,7 +67,7 @@ const ServiceDetails = () => {
                 </div>
             </div>
             <div>
-                <div className='grid gap-2 grid-cols-9 my-10 p-10 rounded-xl lg:w-1/2 mx-auto  bg-stone-900'>
+                <div className='grid gap-2 grid-cols-9 my-10 p-10  lg:w-1/2 mx-auto  bg-stone-900'>
                     {
                         user?.uid ? (
                             <>
@@ -60,6 +75,7 @@ const ServiceDetails = () => {
                                     <img src={user?.photoURL} alt="" className='h-12 w-12 rounded-full' />
                                 </div>
                                 <form onSubmit={handleReview} className='col-span-8 w-full'>
+                                    <Toaster />
 
                                     <input name="rating" className='rounded-md my-2 p-2 text-dark font-semibold' placeholder='Rating (Out of five)' required />
                                     <textarea name="text" className='p-2 h-20 rounded-md text-dark font-semibold w-full ' placeholder='Write a review' required />
@@ -70,8 +86,7 @@ const ServiceDetails = () => {
                     }
 
                 </div>
-
-
+                <ServiceReviews id={_id} />
             </div>
         </div>
     );
