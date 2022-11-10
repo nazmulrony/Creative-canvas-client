@@ -4,7 +4,7 @@ import { FaLocationArrow } from 'react-icons/fa';
 
 const ContactMe = () => {
     return (
-        <div className='  lg:px-20 my-6 lg:my-12'>
+        <div className='  lg:px-20 my-6 lg:my-20'>
             <div className='bg-stone-900 p-8 lg:pb-16  text-light '>
                 <h2 className='text-brand m-4 text-center text-2xl font-semibold'>Contact Me</h2>
                 <div className='flex  flex-col lg:flex-row gap-6'>

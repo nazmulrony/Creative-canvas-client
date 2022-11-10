@@ -4,9 +4,10 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import { setToken } from '../JwtAuth/JwtAuth';
+import Spinner from './shared/Spinner';
 
 const Register = () => {
-    const { loginUser, googleSignIn } = useContext(AuthContext);
+    const { loginUser, googleSignIn, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -42,6 +43,10 @@ const Register = () => {
                 setError(error.message)
                 console.log(error);
             });
+    }
+    //
+    if (loading) {
+        return <Spinner />
     }
 
     return (

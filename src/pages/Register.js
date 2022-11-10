@@ -3,9 +3,10 @@ import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import Spinner from './shared/Spinner';
 
 const Register = () => {
-    const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
+    const { createUser, googleSignIn, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -23,7 +24,6 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                updateUserProfile(name, photoURL);
                 setError('');
                 navigate(from, { replace: true });
             })
@@ -44,6 +44,12 @@ const Register = () => {
                 setError(error.message)
                 console.log(error);
             });
+    }
+
+
+    //spinner
+    if (loading) {
+        return <Spinner />
     }
 
     return (
