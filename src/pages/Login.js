@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import { setToken } from '../JwtAuth/JwtAuth';
 
 const Register = () => {
-    const navigate = useNavigate();
     const { loginUser, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     // reg error state
     const [error, setError] = useState('')
     const handleSubmit = (event) => {
@@ -19,7 +22,8 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-                navigate('/');
+                setToken(user, navigate, from);
+
             })
             .catch(error => {
                 setError(error.message);
@@ -32,7 +36,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message)

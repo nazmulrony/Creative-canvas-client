@@ -18,7 +18,8 @@ const Gallery = () => {
     return (
         <div className='  lg:px-20 my-6 lg:my-12'>
             <h2 className='text-brand m-4 text-center text-3xl lg:text-4xl font-semibold'>Featured Photos </h2>
-            <div className='bg-stone-900 p-8 lg:p-16 text-light'>
+            <h6 className='text-light m-4 text-center text-xl'>These are some featured photos from different events. </h6>
+            <div className='bg-stone-900 p-4 lg:p-16 text-light'>
                 <div className='columns-4 gap-3 space-y-3'>
                     <div className='overflow-hidden'>
                         <img src={image1} alt="" className='scale-105  hover:scale-100 duration-500' />

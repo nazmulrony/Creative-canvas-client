@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Register = () => {
-    const navigate = useNavigate();
     const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     // reg error state
     const [error, setError] = useState('')
     const handleSubmit = (event) => {
@@ -23,7 +25,7 @@ const Register = () => {
                 console.log(user);
                 updateUserProfile(name, photoURL);
                 setError('');
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);

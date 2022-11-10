@@ -5,14 +5,24 @@ import MyReviewCard from './MyReviewCard';
 
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
 
     const loadReviews = (email) => {
-        fetch(`http://localhost:5000/reviews?email=${email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/reviews?email=${email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('creativeCanvasToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    logOut();
+                }
+                return res.json();
+            })
             .then(data => {
-                setReviews(data);
+                setReviews(data)
+                console.log(data)
             })
             .catch(error => console.log(error))
     }
