@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import useTitle from '../hooks/useTitle';
 import { setToken } from '../JwtAuth/JwtAuth';
 import Spinner from './shared/Spinner';
 
@@ -12,6 +13,7 @@ const Register = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
     // reg error state
+    useTitle("Login")
     const [error, setError] = useState('')
     const handleSubmit = (event) => {
         event.preventDefault();
