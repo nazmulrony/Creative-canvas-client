@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import AddService from "../pages/AddService";
 import Blogs from "../pages/Blogs";
+import Error404 from "../pages/Error404";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
 import EditReview from "../pages/MyReviews/EditReview";
@@ -62,5 +63,9 @@ export const router = createBrowserRouter([
             },
 
         ]
+    },
+    {
+        path: '/*',
+        element: <Error404 />
     }
 ])
