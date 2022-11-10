@@ -1,11 +1,12 @@
 import React, { } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 
 const EditReview = () => {
     const review = useLoaderData();
     const navigate = useNavigate();
-
+    useTitle("Edit Review")
     const handleUpdate = event => {
         event.preventDefault();
         const form = event.target;

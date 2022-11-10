@@ -7,6 +7,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import toast, { } from 'react-hot-toast';
 import ServiceReviews from './ServiceReviews';
 import AddReview from './AddReview';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
@@ -14,7 +15,7 @@ const ServiceDetails = () => {
     const service = useLoaderData();
     const { image, name, price, rating, description, _id } = service;
 
-
+    useTitle(`${service?.name}`)
     const handleReview = event => {
         event.preventDefault();
         const text = event.target.text.value;
