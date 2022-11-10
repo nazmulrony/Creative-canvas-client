@@ -29,11 +29,11 @@ const Header: React.FC = () => {
             key={1}
         >
             <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/home`}>Home</NavLink>
-            <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/blog`}>Blog</NavLink>
             {user?.uid && <>
                 <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/add-service`}>Add Service</NavLink>
                 <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/my-reviews`}>My Reviews</NavLink>
             </>}
+            <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/blogs`}>Blogs</NavLink>
             {
                 user?.uid && <span >
                     <div className="flex  items-center justify-center w-10 h-10 overflow-hidden rounded-full bg-white/30">

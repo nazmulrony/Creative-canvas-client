@@ -21,9 +21,6 @@ const MyReviewCard = ({ review, handleDelete }) => {
                 <Link to={`/reviews/${_id}`}><button className='btn btn-brand flex-1 w-full'> Edit</button></Link>
                 <button onClick={() => handleDelete(_id)} className='btn btn-error'>Delete </button>
             </div >
-
-
-
         </div >
     );
 };

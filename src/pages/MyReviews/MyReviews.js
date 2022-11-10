@@ -9,7 +9,7 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
 
     const loadReviews = (email) => {
-        fetch(`http://localhost:5000/reviews?email=${email}`, {
+        fetch(`http://localhost:5000/userReviews?email=${email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('creativeCanvasToken')}`
             }
@@ -50,14 +50,14 @@ const MyReviews = () => {
     return (
         <div className='md:px-20  '>
             <div className=' bg-stone-900 py-6 lg:py-10'>
-                <h2 className='text-3xl lg:text-5xl text-brand text-center font-semibold'>My Reviews</h2>
+                <h2 className='text-3xl lg:text-4xl text-brand text-center font-semibold'>My Reviews</h2>
                 {
-                    !reviews.length && <p className='text-center text-light text-2xl my-2'>No reviews were added</p>
+                    !reviews?.length && <p className='text-center text-light text-2xl my-2'>No reviews were added</p>
                 }
                 <Toaster />
                 <div className='lg:px-20 px-2'>
                     {
-                        reviews.map(review => <MyReviewCard
+                        reviews?.map(review => <MyReviewCard
                             key={review._id}
                             review={review}
                             handleDelete={handleDelete}

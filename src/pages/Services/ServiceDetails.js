@@ -47,8 +47,8 @@ const ServiceDetails = () => {
         console.log(review);
     }
     //
-    const loadReviews = (id) => {
-        fetch(`http://localhost:5000/reviews?service=${id}`)
+    const loadReviews = (_id) => {
+        fetch(`http://localhost:5000/reviews?service=${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
