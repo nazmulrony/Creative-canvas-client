@@ -11,7 +11,7 @@ const MyReviews = () => {
     useTitle("My Reviews")
 
     const loadReviews = (email) => {
-        fetch(`http://localhost:5000/userReviews?email=${email}`, {
+        fetch(`https://creative-photography-server-nazmulrony.vercel.app/userReviews?email=${email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('creativeCanvasToken')}`
             }
@@ -36,7 +36,7 @@ const MyReviews = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure you want to delete this review?');
         if (confirm) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://creative-photography-server-nazmulrony.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

@@ -7,7 +7,7 @@ import { setToken } from '../JwtAuth/JwtAuth';
 import Spinner from './shared/Spinner';
 
 const Register = () => {
-    const { loginUser, googleSignIn, loading } = useContext(AuthContext);
+    const { loginUser, googleSignIn, loading, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -23,12 +23,15 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
+                //get token from server
                 setToken(user, navigate, from);
 
             })
             .catch(error => {
+                setLoading(false)
                 setError(error.message);
             })
+
 
     }
     const handleGoogleSignIn = () => {
@@ -37,7 +40,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-                navigate(from, { replace: true });
+                setToken(user, navigate, from);
             })
             .catch(error => {
                 setError(error.message)

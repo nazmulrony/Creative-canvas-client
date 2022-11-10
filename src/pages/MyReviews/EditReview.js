@@ -14,7 +14,7 @@ const EditReview = () => {
         const rating = form.rating.value;
         const updatedReview = { rating, text };
 
-        fetch(`http://localhost:5000/reviews/${review?._id}`, {
+        fetch(`https://creative-photography-server-nazmulrony.vercel.app/reviews/${review?._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                 </span>
             }
             {user?.uid ? (
-                <button onClick={handleSignOut} className="btn btn-xs btn-brand">Sign Out</button>
+                <button onClick={handleSignOut} className="btn btn-xs btn-brand ">Sign Out</button>
             ) : (
                 <>
                     <NavLink className={({ isActive }) => isActive ? 'text-brand underline underline-offset-2' : undefined} to={`/login`}>Sign In</NavLink>

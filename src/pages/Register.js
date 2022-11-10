@@ -3,10 +3,11 @@ import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import { setToken } from '../JwtAuth/JwtAuth';
 import Spinner from './shared/Spinner';
 
 const Register = () => {
-    const { createUser, googleSignIn, loading } = useContext(AuthContext);
+    const { createUser, googleSignIn, updateUserProfile, loading, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -23,11 +24,15 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                updateUserProfile(name, photoURL);
                 console.log(user);
                 setError('');
-                navigate(from, { replace: true });
+                //get token from server
+                setToken(user, navigate, from)
+
             })
             .catch(error => {
+                setLoading(false)
                 setError(error.message);
             })
 
@@ -38,7 +43,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
-                navigate('/');
+                setToken(user, navigate, from);
             })
             .catch(error => {
                 setError(error.message)

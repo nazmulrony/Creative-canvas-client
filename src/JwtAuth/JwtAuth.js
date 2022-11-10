@@ -2,7 +2,7 @@ export const setToken = (user, navigate, from) => {
     const currentUser = { email: user.email };
 
     //token req from server
-    fetch('http://localhost:5000/jwt', {
+    fetch('https://creative-photography-server-nazmulrony.vercel.app/jwt', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
