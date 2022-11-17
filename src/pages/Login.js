@@ -30,7 +30,7 @@ const Register = () => {
 
             })
             .catch(error => {
-                setLoading(false)
+                setLoading(false);
                 setError(error.message);
             })
 
@@ -45,7 +45,8 @@ const Register = () => {
                 setToken(user, navigate, from);
             })
             .catch(error => {
-                setError(error.message)
+                setError(error.message);
+                setLoading(false);
                 console.log(error);
             });
     }

@@ -48,7 +48,8 @@ const Register = () => {
                 setToken(user, navigate, from);
             })
             .catch(error => {
-                setError(error.message)
+                setError(error.message);
+                setLoading(false);
                 console.log(error);
             });
     }

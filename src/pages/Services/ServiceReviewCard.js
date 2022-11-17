@@ -6,7 +6,7 @@ const ServiceReviewCard = ({ review }) => {
     return (
         <div className=' p-4 flex  rounded-lg overflow-hidden'>
             <div className='rounded-full  flex  overflow-hidden'>
-                <img src={image} alt="" className='h-12 w-full border-brand border-2 object-cover  flex-1 rounded-full' />
+                <img src={image} alt="" className='h-12 w-12 border-brand border-2 object-cover  flex-1 rounded-full' />
             </div>
             <div className='bg-dark p-3 rounded-lg w-full border-brand border ml-2'>
                 <p className='text-md font-semibold'>{name}</p>
